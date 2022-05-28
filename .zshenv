@@ -16,3 +16,4 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 # oh-my-zsh
 export ZSH="$HOME/.oh-my-zsh"
+export ZSH_CUSTOM="$ZSH/custom"

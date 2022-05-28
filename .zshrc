@@ -1,13 +1,12 @@
 ZSH_THEME="default"
 
 plugins=(
-  docker
   kubectl
-  minikube
   zsh-autosuggestions
-  zsh-completions
   zsh-syntax-highlighting
 )
+
+fpath+=${ZSH_CUSTOM}/plugins/zsh-completions/src
 
 if command -v pyenv >/dev/null; then
   eval "$(pyenv init -)";
