@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Terminal & iTerm 2 defaults.
+# Before setting this defaults, run iterm2 and kill it, to let default settings to be loaded
+
+# Only use UTF-8 in Terminal.app
+defaults write com.apple.terminal StringEncodings -array 4
+
+# Enable Secure Keyboard Entry in Terminal.app
+# See: https://security.stackexchange.com/a/47786/8918
+defaults write com.apple.terminal SecureKeyboardEntry -bool true
+
+# Don’t display the annoying prompt when quitting iTerm
+defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+
+# disable native full screen windows 
+defaults write com.googlecode.iterm2 UseLionStyleFullscreen -bool false
+
+# Smart window placement
+defaults write com.googlecode.iterm2 SmartPlacement -bool true
+
+/usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Window Type' 1" Library/Preferences/com.googlecode.iterm2.plist
+/usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:Transparency 0.32" Library/Preferences/com.googlecode.iterm2.plist
+/usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:Screen 0" Library/Preferences/com.googlecode.iterm2.plist
+/usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Custom Directory' Recycle" Library/Preferences/com.googlecode.iterm2.plist

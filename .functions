@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# safe brew uninstall 
+unbrew () {
+    local formula
+    for formula in "$@"; do
+        brew uninstall --force "$formula"
+    done
+    brew autoremove
+}
+
+command_exists() {
+  command -v "$@" >/dev/null 2>&1
+}

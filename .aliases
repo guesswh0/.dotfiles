@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# arch -x86_64 zsh
+alias izsh='/usr/bin/arch -x86_64 /bin/zsh --login'
+
+# arch -x86_64 brew
+alias ibrew="arch -x86_64 /usr/local/bin/brew"
+
+# https://github.com/pyenv/pyenv/issues/106 
+alias brew='env PATH=${PATH//*shims:/} brew'
+
+# recursively delete `.DS_Store` files
+alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
+
+# remove broken symlinks
+alias clsym="find -L . -name . -o -type d -prune -o -type l -exec rm {} +"
+
+# recursively delete __pycache__ dir files (exclude .venv)
+alias pyclean='find . -type d -name ".venv" -prune -o -name __pycache__ -ls -exec rm -r {} \+'
+
+# remove all packages from current pip
+alias pipclean='pip freeze --exclude-editable | xargs pip uninstall -y'
+
+# copy pwd to clipboard
+alias cwd="pwd|tr -d '\n'|pbcopy"
+
+# file size
+alias fs="stat -f \"%z bytes\""
+
+# cd to mktemp -d
+alias temp="cd $(mktemp -d)"
+
+# paths by column
+alias paths='echo -e ${PATH//:/\\n}'
+
+# play submarine sound
+alias notify='afplay /System/Library/Sounds/Submarine.aiff -v 10'
+
+# global ip address
+alias ipp="dig +short myip.opendns.com @resolver1.opendns.com"
+
+# local ip address
+alias ipl="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
+
+# cli speedtest
+alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"

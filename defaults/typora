@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Quit Typora when last window is closed
+defaults write abnerworks.Typora quitAfterWindowClose -bool true
+
+# Send anonymous usage info
+defaults write abnerworks.Typora send_usage_info -bool false
+
+# Open custom folder on launch
+defaults write abnerworks.Typora restoreWhenLaunch -int 3
+defaults write abnerworks.Typora pinFolder -string "~/Documents/Notes"
+
+# Enable inline math
+defaults write abnerworks.Typora enable_inline_math -bool true
+
+# blubook theme
+ln -sfv ~/Documents/typora-blubook-theme/blubook \
+    ~/Library/Application\ Support/abnerworks.Typora/themes
+ln -sfv ~/Documents/typora-blubook-theme/blubook.css \
+    ~/Library/Application\ Support/abnerworks.Typora/themes
