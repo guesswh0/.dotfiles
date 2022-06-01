@@ -1,18 +1,11 @@
-ZSH_THEME="default"
+# antigen
+source ~/.antigenrc
 
-plugins=(
-  kubectl
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-)
+source $DOTFILES_DIR/.aliases
+source $DOTFILES_DIR/.functions
 
-fpath+=${ZSH_CUSTOM}/plugins/zsh-completions/src
-
+# pyenv
 if command -v pyenv >/dev/null; then
   eval "$(pyenv init -)";
   eval "$(pyenv virtualenv-init -)";
 fi
-
-source $DOTFILES_DIR/.aliases
-source $DOTFILES_DIR/.functions
-source $ZSH/oh-my-zsh.sh

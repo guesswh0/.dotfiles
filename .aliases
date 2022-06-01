@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # arch -x86_64 zsh
 alias izsh='/usr/bin/arch -x86_64 /bin/zsh --login'
 
@@ -44,3 +42,6 @@ alias ipl="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([
 
 # cli speedtest
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
+
+# inet routing tables 
+alias routes="netstat -rn -f inet"

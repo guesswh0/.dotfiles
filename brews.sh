@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # install brew
 if ! [ -x "$(command -v brew)" ]; then

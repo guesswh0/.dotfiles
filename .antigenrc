@@ -1,0 +1,19 @@
+source /usr/local/opt/antigen.zsh
+
+# use oh-my-zsh plugins
+antigen use oh-my-zsh
+
+# oh-my-zsh bundles
+antigen bundle docker
+antigen bundle kubectl
+
+# public bundles
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# theme
+antigen theme https://gist.github.com/3a4b7ca585a6e81e397f3804f3a6268a.git agnoster
+
+# commit
+antigen apply
