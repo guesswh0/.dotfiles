@@ -15,6 +15,7 @@ brew install yq
 brew install bat
 brew install tree
 brew install wget
+brew install antigen
 brew install moreutils
 brew install coreutils
 brew install source-highlight

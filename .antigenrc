@@ -1,4 +1,4 @@
-source /usr/local/opt/antigen.zsh
+source /opt/homebrew/share/antigen/antigen.zsh
 
 # use oh-my-zsh plugins
 antigen use oh-my-zsh

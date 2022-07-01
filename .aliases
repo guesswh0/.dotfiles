@@ -28,6 +28,9 @@ alias fs="stat -f \"%z bytes\""
 # cd to mktemp -d
 alias temp="cd $(mktemp -d)"
 
+# generate password
+alias pwgen="openssl rand -base64 16 | pbcopy"
+
 # paths by column
 alias paths='echo -e ${PATH//:/\\n}'
 

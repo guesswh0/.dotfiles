@@ -3,10 +3,8 @@
 DOTFILES_DIR=~/.dotfiles
 
 # nerd-fonts
-wget -P ~/Library/Fonts https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf
-
-# antigen
-wget git.io/antigen -O /usr/local/opt/antigen.zsh
+curl -L -o /tmp/nerd.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
+unzip /tmp/nerd.zip -d ~/Library/Fonts
 
 # pyenv 
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv

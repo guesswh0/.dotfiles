@@ -90,6 +90,9 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow showInputMenu -bo
 # Use the Caps Lock key to switch to and from U.S. 
 defaults write NSGlobalDomain TISRomanSwitchState -bool true
 
+# Remove mouse accelaration
+defaults write .GlobalPreferences com.apple.mouse.scaling -1
+
 ## Screen
 
 # Require password immediately after sleep or screen saver begins
