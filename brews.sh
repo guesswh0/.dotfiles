@@ -23,7 +23,7 @@ brew install source-highlight
 # build tools
 brew install cmake
 brew install python
-brew install readline
+brew install poetry
 brew install pkg-config
 
 # kubernetes
@@ -43,3 +43,4 @@ brew install --cask syntax-highlight
 brew install --cask iterm2
 brew install --cask docker
 brew install --cask postman
+brew install --cask mongodb-compass
