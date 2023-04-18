@@ -28,7 +28,9 @@ brew install pkg-config
 
 # kubernetes
 brew install helm
+brew install kubectl
 brew install minikube
+brew install kubectx
 
 # basic apps
 brew install --cask dash

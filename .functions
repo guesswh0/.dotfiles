@@ -10,3 +10,8 @@ unbrew () {
 command_exists() {
   command -v "$@" >/dev/null 2>&1
 }
+
+
+killp() { 
+  kill -9 $(lsof -t -i:"$1" -sTCP:LISTEN) 
+}
