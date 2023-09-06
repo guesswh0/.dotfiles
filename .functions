@@ -15,3 +15,15 @@ command_exists() {
 killp() { 
   kill -9 $(lsof -t -i:"$1" -sTCP:LISTEN) 
 }
+
+.env () {
+  set -a
+  [ -f .env ] && source .env
+  set +a
+}
+
+iterm2_print_user_vars() {
+  iterm2_set_user_var awsProfile $AWS_PROFILE
+  iterm2_set_user_var kubeContext  $(kubectl config current-context)
+  iterm2_set_user_var kubeNamespace  $(kubectl config view --minify --output 'jsonpath={..namespace}')
+}
