@@ -48,3 +48,6 @@ alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/m
 
 # inet routing tables 
 alias routes="netstat -rn -f inet"
+
+# pycharm
+alias charm='open -b com.jetbrains.pycharm'
