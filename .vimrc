@@ -38,6 +38,12 @@ set esckeys
 set ttimeoutlen=20
 set timeoutlen=1000
 
+" Ctrl+Shift+up move line above"
+nmap <C-S-Up> :m -2<CR>
+
+" Ctrl+Shift+down move line below
+nmap <C-S-Down> :m +1<CR>
+
 " allow syntax and filetype plugins
 syntax enable
 filetype plugin indent on
