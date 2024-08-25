@@ -6,6 +6,10 @@ DOTFILES_DIR=~/.dotfiles
 curl -L -o /tmp/nerd.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
 unzip /tmp/nerd.zip -d ~/Library/Fonts
 
+# vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 # pyenv 
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 git clone --depth 1 https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
