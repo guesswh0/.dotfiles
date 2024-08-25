@@ -13,3 +13,6 @@ export PATH=$JAVA_HOME/bin:$PATH
 export PYENV_ROOT=~/.pyenv
 export PATH=$PYENV_ROOT/bin:$PATH
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+
+# read environment variables from .env
+export $(grep -v '^#' "$PWD/.env" | xargs)

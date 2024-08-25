@@ -15,6 +15,7 @@ brew install yq
 brew install bat
 brew install tree
 brew install wget
+brew install pwgen
 brew install antigen
 brew install moreutils
 brew install coreutils
@@ -40,6 +41,7 @@ brew install --cask typora
 brew install --cask transmission
 brew install --cask google-chrome
 brew install --cask syntax-highlight
+brew install --cask browserosaurus
 
 # dev apps
 brew install --cask iterm2
