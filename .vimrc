@@ -50,3 +50,11 @@ augroup languages
     autocmd FileType html,javascript,css,json,yaml,sh
                 \ setlocal ts=2 sts=2 sw=2 expandtab
 augroup END
+
+" terminal
+set splitbelow
+set termwinsize=10x0
+
+" open / close terminal with F12
+nnoremap <F12> :term<CR>
+tnoremap <F12> <C-\><C-n>:bdelete!<CR>

@@ -16,6 +16,12 @@ defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 # disable native full screen windows 
 defaults write com.googlecode.iterm2 UseLionStyleFullscreen -bool false
 
+# remove top & bottom margin
+defaults write com.googlecode.iterm2 TerminalVMargin 0
+
+# remove left & right margin
+defaults write com.googlecode.iterm2 TerminalMargin 0
+
 # Smart window placement
 defaults write com.googlecode.iterm2 SmartPlacement -bool true
 
