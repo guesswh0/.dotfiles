@@ -40,12 +40,12 @@ set termguicolors
 
 " NERDTree
 set <A-1>=1 " Alt+1
-nnoremap <A-1> NERDTreeToggle<CR>
+nnoremap <A-1> :NERDTreeToggle<CR>
 
 " autocmds
 augroup languages
     autocmd!
-    autocmd FileType python xnoremap <leader>r <esc>'<,'>w !python3<CR>
+    autocmd FileType python xnoremap <leader>r <esc>:'<,'>:w !python3<CR>
     autocmd FileType go set noexpandtab
     autocmd FileType html,javascript,css,json,yaml,sh
                 \ setlocal ts=2 sts=2 sw=2 expandtab
