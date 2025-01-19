@@ -10,10 +10,6 @@ unzip /tmp/nerd.zip -d ~/Library/Fonts
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# pyenv 
-git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-git clone --depth 1 https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
-
 # bunch of symlinks
 ln -sfv $DOTFILES_DIR/.vimrc ~
 ln -sfv $DOTFILES_DIR/.zshrc ~

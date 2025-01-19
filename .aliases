@@ -1,12 +1,6 @@
 # arch -x86_64 zsh
 alias izsh='/usr/bin/arch -x86_64 /bin/zsh --login'
 
-# arch -x86_64 brew
-alias ibrew="arch -x86_64 /usr/local/bin/brew"
-
-# https://github.com/pyenv/pyenv/issues/106 
-alias brew='env PATH=${PATH//*shims:/} brew'
-
 # recursively delete `.DS_Store` files
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 

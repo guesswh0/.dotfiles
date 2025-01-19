@@ -7,6 +7,3 @@ export NLS_LANG=AMERICAN_AMERICA.AL32UTF8
 if [ $(uname -m) = "arm64" ]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
-
-# pyenv init
-eval "$(pyenv init --path)"
