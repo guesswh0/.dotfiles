@@ -1,9 +1,4 @@
-# installation source
-if [ $(uname -m) = "arm64" ]; then
-    source /opt/homebrew/share/antigen/antigen.zsh
-else
-    source /usr/local/share/antigen/antigen.zsh
-fi
+source ~/.local/share/antigen/antigen.zsh
 
 # use oh-my-zsh plugins
 antigen use oh-my-zsh

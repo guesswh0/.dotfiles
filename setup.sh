@@ -10,6 +10,9 @@ unzip /tmp/nerd.zip -d ~/Library/Fonts
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+# antigen
+curl -fLo ~/.local/share/antigen/antigen.zsh --create-dirs git.io/antigen
+
 # bunch of symlinks
 ln -sfv $DOTFILES_DIR/.vimrc ~
 ln -sfv $DOTFILES_DIR/.zshrc ~
