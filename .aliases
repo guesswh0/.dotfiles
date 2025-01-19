@@ -16,6 +16,9 @@ alias pipclean='pip freeze --exclude-editable | xargs pip uninstall -y'
 # copy pwd to clipboard
 alias cwd="pwd|tr -d '\n'|pbcopy"
 
+# use bat as cat
+alias cat='bat --style=plain'
+
 # file size
 alias fs="stat -f \"%z bytes\""
 
