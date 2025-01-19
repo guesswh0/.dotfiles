@@ -14,8 +14,10 @@ fi
 brew install bat
 brew install tree
 brew install wget
+brew install htop
 brew install pwgen
 brew install telnet
+brew install antigen
 brew install moreutils
 brew install coreutils
 brew install source-highlight
