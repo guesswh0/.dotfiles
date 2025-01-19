@@ -11,12 +11,11 @@ if [ $(uname -m) = "arm64" ]; then
 fi
 
 # basic tools
-brew install yq
 brew install bat
 brew install tree
 brew install wget
 brew install pwgen
-brew install antigen
+brew install telnet
 brew install moreutils
 brew install coreutils
 brew install source-highlight
@@ -24,7 +23,6 @@ brew install source-highlight
 # build tools
 brew install cmake
 brew install python
-brew install poetry
 brew install pkg-config
 
 # kubernetes
@@ -48,3 +46,5 @@ brew install --cask iterm2
 brew install --cask docker
 brew install --cask postman
 brew install --cask mongodb-compass
+brew install --cask pycharm
+brew install --cask dbeaver-community
