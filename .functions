@@ -23,7 +23,9 @@ killp() {
 }
 
 iterm2_print_user_vars() {
-  iterm2_set_user_var awsProfile $AWS_PROFILE
-  iterm2_set_user_var kubeContext  $(kubectl config current-context)
+  # Go to iTerm2 > Preferences > Profiles > Session > Configure Status Bar
+  # Add a new component of type "Interpolated String" with value e.g: "\(user.kubeContext)""
+  iterm2_set_user_var awsProfile $AWS_PROFILE # 
+  iterm2_set_user_var kubeContext  $(kubectl config current-context) # 
   iterm2_set_user_var kubeNamespace  $(kubectl config view --minify --output 'jsonpath={..namespace}')
 }
