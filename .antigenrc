@@ -9,10 +9,10 @@ fi
 antigen use oh-my-zsh
 
 # oh-my-zsh bundles
+antigen bundle uv
+antigen bundle helm
 antigen bundle docker
 antigen bundle kubectl
-antigen bundle kubectx
-antigen bundle helm
 
 # public bundles
 antigen bundle zsh-users/zsh-completions
