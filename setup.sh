@@ -22,9 +22,10 @@ ln -sfv $DOTFILES_DIR/.zprofile ~
 ln -sfv $DOTFILES_DIR/.hushlogin ~
 ln -sfv $DOTFILES_DIR/.antigenrc ~
 
-# brew
+# tools
 if read -q "choice?Install packages? [y/n]:"; then
     $DOTFILES_DIR/brews.sh
+    $DOTFILES_DIR/tools.sh
 fi
 
 echo -e "\nDone. Reload your terminal."
