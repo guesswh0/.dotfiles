@@ -12,7 +12,7 @@ export PATH="/Users/dank0/.local/bin:$PATH"
 export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH=$JAVA_HOME/bin:$PATH
 
-# read environment variables from .env
-set -o allexport
-source $DOTFILES_DIR/.env
-set +o allexport
+# https://docs.astral.sh/uv/configuration/environment
+export UV_PROJECT_ENVIRONMENT=".nosync/venv"
+export UV_VENV_SEED=1
+export UV_PYTHON="3.12"
