@@ -16,10 +16,14 @@ killp() {
   kill -9 $(lsof -t -i:"$1" -sTCP:LISTEN) 
 }
 
-.env () {
-  set -a
+.env() {
+  set -o allexport
   [ -f .env ] && source .env
-  set +a
+  set +o allexport
+}
+
+precmd() {
+    .env
 }
 
 iterm2_print_user_vars() {
