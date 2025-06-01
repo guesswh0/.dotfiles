@@ -22,10 +22,6 @@ killp() {
   set +o allexport
 }
 
-precmd() {
-    .env
-}
-
 iterm2_print_user_vars() {
   # Go to iTerm2 > Preferences > Profiles > Session > Configure Status Bar
   # Add a new component of type "Interpolated String" with value e.g: "\(user.kubeContext)""

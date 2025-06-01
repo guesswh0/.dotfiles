@@ -16,3 +16,6 @@ export PATH=$JAVA_HOME/bin:$PATH
 export UV_PROJECT_ENVIRONMENT=".nosync/venv"
 export UV_VENV_SEED=1
 export UV_PYTHON="3.12"
+
+# kube config
+export KUBECONFIG=$(find ~/.kube -type f -name "*.yaml" | tr '\n' ':')

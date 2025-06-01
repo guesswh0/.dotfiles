@@ -25,12 +25,11 @@ brew install source-highlight
 brew install cmake
 brew install python
 brew install pkg-config
+brew install node
 
 # kubernetes
 brew install helm
 brew install kubectl
-brew install minikube
-brew install kubectx
 
 # basic apps
 brew install --cask dash
