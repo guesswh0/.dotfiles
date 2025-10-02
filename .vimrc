@@ -49,6 +49,7 @@ augroup END
 " NERDTree
 set <A-1>=1 " Alt+1
 nnoremap <A-1> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 " move lines up and down"
 nmap <C-S-Up> m -2<CR>

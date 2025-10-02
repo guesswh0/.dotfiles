@@ -5,6 +5,7 @@ antigen use oh-my-zsh
 
 # oh-my-zsh bundles
 antigen bundle uv
+antigen bundle git
 antigen bundle helm
 antigen bundle docker
 antigen bundle kubectl
