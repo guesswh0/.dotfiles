@@ -16,9 +16,10 @@ killp() {
   kill -9 $(lsof -t -i:"$1" -sTCP:LISTEN) 
 }
 
-.env() {
+load_env() {
+  local env_file="${1:-.env}"
   set -o allexport
-  [ -f .env ] && source .env
+  [ -f "$env_file" ] && source "$env_file"
   set +o allexport
 }
 
