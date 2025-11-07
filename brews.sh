@@ -45,13 +45,14 @@ brew install --cask raycast
 brew install --cask transmission
 brew install --cask google-chrome
 brew install --cask syntax-highlight
-brew install --cask browserosaurus
 brew install --cask chatgpt
+brew install --cask claude
 
 # dev apps
 brew install --cask iterm2
 brew install --cask docker
 brew install --cask postman
+brew install --cask aptakube
 brew install --cask mongodb-compass
 brew install --cask pycharm
 brew install --cask datagrip

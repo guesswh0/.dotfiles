@@ -1,5 +1,9 @@
 skip_global_compinit=1
 
+# history
+export HISTSIZE=999999
+export SAVEHIST=999999
+
 # common
 export FIGNORE=DS_Store
 export EDITOR=$(which vim)
