@@ -23,4 +23,6 @@ export UV_PYTHON="3.12"
 export UV_ENV_FILE=".env"
 
 # kube config
-export KUBECONFIG=$(find ~/.kube -type f -name "*.yaml" | tr '\n' ':')
+if [ -d "$HOME/.kube" ]; then
+	export KUBECONFIG=$(find "$HOME/.kube" -type f -name "*.yaml" | tr '\n' ':')
+fi
