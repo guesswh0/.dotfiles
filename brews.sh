@@ -11,7 +11,7 @@ if [ $(uname -m) = "arm64" ]; then
 fi
 
 # basic tools
-brew install bat
+# brew install bat
 brew install tree
 brew install wget
 brew install htop
@@ -30,7 +30,6 @@ brew install node
 # dev tools
 brew install postgresql
 brew install redis
-brew install rabbitmq
 
 # kubernetes
 brew install helm
@@ -41,10 +40,8 @@ brew install --cask dash
 brew install --cask iina
 brew install --cask clipy
 brew install --cask typora
-brew install --cask raycast
 brew install --cask transmission
 brew install --cask google-chrome
-brew install --cask syntax-highlight
 brew install --cask chatgpt
 brew install --cask claude
 
@@ -53,8 +50,6 @@ brew install --cask iterm2
 brew install --cask docker
 brew install --cask postman
 brew install --cask aptakube
-brew install --cask mongodb-compass
 brew install --cask pycharm
 brew install --cask datagrip
-brew install --cask dbeaver-community
 brew install --cask oracle-jdk
