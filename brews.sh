@@ -11,7 +11,7 @@ if [ $(uname -m) = "arm64" ]; then
 fi
 
 # basic tools
-# brew install bat
+brew install bat
 brew install tree
 brew install wget
 brew install htop
