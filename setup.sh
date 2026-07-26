@@ -20,7 +20,7 @@ ln -sfv $DOTFILES_DIR/.zshenv ~
 ln -sfv $DOTFILES_DIR/.zprofile ~
 ln -sfv $DOTFILES_DIR/.hushlogin ~
 ln -sfv $DOTFILES_DIR/.antigenrc ~
-ln -sfv $DOTFILES_DIR/.AGENTS.md ~/.claude/CLAUDE.md
+ln -sfv $DOTFILES_DIR/.agents/AGENTS.md ~/.claude/CLAUDE.md
 
 # tools
 if read -q "choice?Install packages? [y/n]:"; then
