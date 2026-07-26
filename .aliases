@@ -10,6 +10,9 @@ alias clsym="find -L . -name . -o -type d -prune -o -type l -exec rm {} +"
 # recursively delete __pycache__ dir files (exclude .venv)
 alias pyclean='find . -type d -name ".venv" -prune -o -name __pycache__ -ls -exec rm -r {} \+'
 
+# recursively delete .venv and .nosync folders with verbose output
+alias venvclean='find . -type d \( -name ".venv" -o -name ".nosync" \) -ls -exec rm -r {} \+'
+
 # remove all packages from current pip
 alias pipclean='pip freeze --exclude-editable | xargs pip uninstall -y'
 
