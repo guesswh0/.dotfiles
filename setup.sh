@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 DOTFILES_DIR=~/.dotfiles
 
@@ -20,7 +20,19 @@ ln -sfv $DOTFILES_DIR/.zshenv ~
 ln -sfv $DOTFILES_DIR/.zprofile ~
 ln -sfv $DOTFILES_DIR/.hushlogin ~
 ln -sfv $DOTFILES_DIR/.antigenrc ~
-ln -sfv $DOTFILES_DIR/.agents/AGENTS.md ~/.claude/CLAUDE.md
+
+
+# agents
+if read -q "choice?Install agents? [y/n]:"; then
+    ln -sfv $DOTFILES_DIR/.agents/AGENTS.md ~/.claude/CLAUDE.md
+    
+    mkdir -p ~/.agents/skills ~/.claude/skills ~/.codex/skills
+    for skill in $DOTFILES_DIR/.agents/skills/*/; do
+        ln -sfhv "${skill%/}" ~/.agents/skills/
+        ln -sfhv "${skill%/}" ~/.codex/skills/
+        ln -sfhv "${skill%/}" ~/.claude/skills/
+    done
+fi
 
 # tools
 if read -q "choice?Install packages? [y/n]:"; then
