@@ -32,6 +32,11 @@ Put a question to the user only when the answer is theirs as the accountable own
 
 The test is the ADR test: hard to reverse, surprising without context, the result of a real trade-off.
 Hard to reverse is theirs; cheap to reverse is yours.
+
+Also escalate the calls where your own confidence is genuinely low.
+If you would flag a decision in the report as "least sure, push back here", ask about it instead - before the report, so the answer shapes the draft rather than amending it.
+Reaching the report without having asked a single question is a warning sign: check whether you silently settled calls that were the owner's, or papered over your own uncertainty.
+
 Ask through the structured question tool (in Claude Code: `AskUserQuestion`), recommended answer first.
 
 ## Report
@@ -42,11 +47,11 @@ Present the draft as a decision log. For each decision:
 - **Why** - the trade-off, and what you rejected.
 - **How to undo it** if it turns out wrong, and what would later make it expensive.
 
-Inventory every call you made, not only the interesting ones: full entries for the consequential ones, a single line each for the rest.
-A decision that felt obvious to you is exactly where the owner's model may differ from yours.
-For the decisions that carry the design, show them working on one real case, with real values, rather than describing them in the abstract.
+These are three separate labeled lines in every language the conversation runs in: translate the labels when the chat is not in English, but never collapse an entry into one running sentence.
+Order the decisions by consequence, the weightiest first - the reader stops reading when it stops mattering.
+Report only the decisions that carry the design; leave the minor calls out entirely - the report is for reading, not for the record.
+Show the load-bearing decisions working on one real case, with real values, rather than describing them in the abstract.
 
-Flag the decisions you are least sure about - that is where the user should push back first.
 List the assumptions the draft rests on: the things you were confident enough not to ask about.
 Then state what you deliberately left open, and why it is cheaper to decide later.
 

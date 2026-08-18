@@ -1,0 +1,3 @@
+interface:
+  display_name: "Draft"
+  short_description: "Work out the design yourself, escalate only owner decisions"
