@@ -1,14 +1,16 @@
-#!/bin/sh
+#!/bin/bash
 
-# install brew
-if ! [ -x "$(command -v brew)" ]; then
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
+set -euo pipefail
 
-# arm64 brew
-if [ $(uname -m) = "arm64" ]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
+if [ ! -x /opt/homebrew/bin/brew ]; then
+    installer=$(mktemp)
+    trap 'rm -f "$installer"' EXIT
+    curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh -o "$installer"
+    /bin/bash "$installer"
 fi
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+brew install --cask font-hack-nerd-font
 
 # basic tools
 brew install bat
@@ -26,6 +28,8 @@ brew install cmake
 brew install python
 brew install pkg-config
 brew install node
+brew install uv
+brew install jq
 
 # dev tools
 brew install postgresql
@@ -44,10 +48,11 @@ brew install --cask transmission
 brew install --cask google-chrome
 brew install --cask chatgpt
 brew install --cask claude
+brew install --cask wispr-flow
 
 # dev apps
 brew install --cask iterm2
-brew install --cask docker
+brew install --cask docker-desktop
 brew install --cask postman
 brew install --cask aptakube
 brew install --cask pycharm

@@ -1,43 +1,55 @@
-#!/bin/sh
+#!/bin/bash
 
-DOTFILES_DIR=~/.dotfiles
+set -euo pipefail
 
-# nerd-fonts
-curl -L -o /tmp/nerd.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
-unzip /tmp/nerd.zip -d ~/Library/Fonts
+DOTFILES_DIR="$HOME/.dotfiles"
 
-# vim-plug
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+link() {
+    [ "$1" -ef "$2" ] && return
+    if [ -e "$2" ] || [ -L "$2" ]; then
+        mv "$2" "$2.backup.$(date +%Y%m%d%H%M%S).$$"
+    fi
+    ln -sv "$1" "$2"
+}
 
-# antigen
-curl -fLo ~/.local/share/antigen/antigen.zsh --create-dirs git.io/antigen
+read -r -p 'Install packages? [y/N]: ' choice
+if [[ "$choice" == [yY] ]]; then
+    bash "$DOTFILES_DIR/brews.sh"
+    bash "$DOTFILES_DIR/tools.sh"
+fi
 
-# bunch of symlinks
-ln -sfv $DOTFILES_DIR/.vimrc ~
-ln -sfv $DOTFILES_DIR/.zshrc ~
-ln -sfv $DOTFILES_DIR/.zshenv ~
-ln -sfv $DOTFILES_DIR/.zprofile ~
-ln -sfv $DOTFILES_DIR/.hushlogin ~
-ln -sfv $DOTFILES_DIR/.antigenrc ~
+download_dir=$(mktemp -d)
+trap 'rm -rf "$download_dir"' EXIT
 
+if [ ! -s "$HOME/.vim/autoload/plug.vim" ]; then
+    curl -fsSL https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
+        -o "$download_dir/plug.vim"
+    mkdir -p "$HOME/.vim/autoload"
+    install -m 644 "$download_dir/plug.vim" "$HOME/.vim/autoload/plug.vim"
+fi
 
-# agents
-if read -q "choice?Install agents? [y/n]:"; then
-    ln -sfv $DOTFILES_DIR/.agents/AGENTS.md ~/.claude/CLAUDE.md
-    
-    mkdir -p ~/.agents/skills ~/.claude/skills ~/.codex/skills
-    for skill in $DOTFILES_DIR/.agents/skills/*/; do
-        ln -sfhv "${skill%/}" ~/.agents/skills/
-        ln -sfhv "${skill%/}" ~/.codex/skills/
-        ln -sfhv "${skill%/}" ~/.claude/skills/
+if [ ! -s "$HOME/.local/share/antigen/antigen.zsh" ]; then
+    curl -fsSL https://raw.githubusercontent.com/zsh-users/antigen/v2.2.3/bin/antigen.zsh \
+        -o "$download_dir/antigen.zsh"
+    mkdir -p "$HOME/.local/share/antigen"
+    install -m 644 "$download_dir/antigen.zsh" "$HOME/.local/share/antigen/antigen.zsh"
+fi
+
+for name in .vimrc .zshrc .zshenv .zprofile .hushlogin .antigenrc; do
+    link "$DOTFILES_DIR/$name" "$HOME/$name"
+done
+
+read -r -p 'Install agent configuration? [y/N]: ' choice
+if [[ "$choice" == [yY] ]]; then
+    mkdir -p "$HOME/.agents/skills" "$HOME/.claude/skills" "$HOME/.codex"
+    link "$DOTFILES_DIR/.agents/AGENTS.md" "$HOME/.claude/CLAUDE.md"
+    link "$DOTFILES_DIR/.agents/AGENTS.md" "$HOME/.codex/AGENTS.md"
+    for skill in "$DOTFILES_DIR"/.agents/skills/*/; do
+        [ -f "$skill/SKILL.md" ] || continue
+        skill=${skill%/}
+        link "$skill" "$HOME/.agents/skills/${skill##*/}"
+        link "$skill" "$HOME/.claude/skills/${skill##*/}"
     done
 fi
 
-# tools
-if read -q "choice?Install packages? [y/n]:"; then
-    $DOTFILES_DIR/brews.sh
-    $DOTFILES_DIR/tools.sh
-fi
-
-echo -e "\nDone. Reload your terminal."
+printf '\nDone. Open a new terminal.\n'

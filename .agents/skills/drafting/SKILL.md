@@ -36,7 +36,8 @@ Also escalate the calls where your own confidence is genuinely low.
 If you would flag a decision in the report as "least sure, push back here", ask about it instead - before the report, so the answer shapes the draft rather than amending it.
 Reaching the report without having asked a single question is a warning sign: check whether you silently settled calls that were the owner's, or papered over your own uncertainty.
 
-Ask through the structured question tool (in Claude Code: `AskUserQuestion`), recommended answer first.
+Ask in plain chat. For each question, explain the decision at stake and give your recommended answer with its main trade-off.
+Wait for the user's answer before settling that decision or asking questions that depend on it.
 
 ## Report
 
