@@ -1,3 +1,0 @@
-interface:
-  display_name: "Breakdown"
-  short_description: "Break the conversation into TASKS.md backlog entries"
