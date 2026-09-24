@@ -16,7 +16,7 @@
 
 ## 🧵 Multi-Agent Workflows
 - Choose each agent’s model and reasoning effort with quality first, then cost and latency. State both and briefly justify why they are sufficient without being excessive. Do not default to `inherit`; justify inherited settings the same way.
-- Never launch a multi-agent workflow (Workflow tool or similar fan-out orchestration) without my explicit approval for that specific run.
+- Before launching a multi-agent workflow, present the pipeline and obtain my explicit approval for that run.
 - Present the plan for approval as a compact pipeline only: phases in order, agent count per phase, and model + effort per agent (state "inherit session model" explicitly when that is the choice), with a one-line rationale for each choice.
 
 ## 🧹 The "Boy Scout" Rule (Engineering Excellence)
