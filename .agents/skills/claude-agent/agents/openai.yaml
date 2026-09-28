@@ -1,0 +1,3 @@
+interface:
+  display_name: "Claude Agent"
+  short_description: "Delegate Claude tasks and approve dynamic workflows"
