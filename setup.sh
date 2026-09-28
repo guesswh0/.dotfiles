@@ -12,6 +12,7 @@ link() {
     ln -sv "$1" "$2"
 }
 
+# Install packages
 read -r -p 'Install packages? [y/N]: ' choice
 if [[ "$choice" == [yY] ]]; then
     bash "$DOTFILES_DIR/brews.sh"
@@ -21,6 +22,7 @@ fi
 download_dir=$(mktemp -d)
 trap 'rm -rf "$download_dir"' EXIT
 
+# Install vim-plug
 if [ ! -s "$HOME/.vim/autoload/plug.vim" ]; then
     curl -fsSL https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
         -o "$download_dir/plug.vim"
@@ -28,6 +30,7 @@ if [ ! -s "$HOME/.vim/autoload/plug.vim" ]; then
     install -m 644 "$download_dir/plug.vim" "$HOME/.vim/autoload/plug.vim"
 fi
 
+# Install antigen
 if [ ! -s "$HOME/.local/share/antigen/antigen.zsh" ]; then
     curl -fsSL https://raw.githubusercontent.com/zsh-users/antigen/v2.2.3/bin/antigen.zsh \
         -o "$download_dir/antigen.zsh"
@@ -35,10 +38,12 @@ if [ ! -s "$HOME/.local/share/antigen/antigen.zsh" ]; then
     install -m 644 "$download_dir/antigen.zsh" "$HOME/.local/share/antigen/antigen.zsh"
 fi
 
+# Bunch of symlinks
 for name in .vimrc .zshrc .zshenv .zprofile .hushlogin .antigenrc; do
     link "$DOTFILES_DIR/$name" "$HOME/$name"
 done
 
+# Install agent configuration
 read -r -p 'Install agent configuration? [y/N]: ' choice
 if [[ "$choice" == [yY] ]]; then
     mkdir -p "$HOME/.agents/skills" "$HOME/.claude/skills" "$HOME/.codex"
@@ -48,7 +53,9 @@ if [[ "$choice" == [yY] ]]; then
         [ -f "$skill/SKILL.md" ] || continue
         skill=${skill%/}
         link "$skill" "$HOME/.agents/skills/${skill##*/}"
-        link "$skill" "$HOME/.claude/skills/${skill##*/}"
+        if [ "${skill##*/}" != claude-agent ]; then
+            link "$skill" "$HOME/.claude/skills/${skill##*/}"
+        fi
     done
 fi
 
