@@ -43,20 +43,4 @@ for name in .vimrc .zshrc .zshenv .zprofile .hushlogin .antigenrc; do
     link "$DOTFILES_DIR/$name" "$HOME/$name"
 done
 
-# Install agent configuration
-read -r -p 'Install agent configuration? [y/N]: ' choice
-if [[ "$choice" == [yY] ]]; then
-    mkdir -p "$HOME/.agents/skills" "$HOME/.claude/skills" "$HOME/.codex"
-    link "$DOTFILES_DIR/.agents/AGENTS.md" "$HOME/.claude/CLAUDE.md"
-    link "$DOTFILES_DIR/.agents/AGENTS.md" "$HOME/.codex/AGENTS.md"
-    for skill in "$DOTFILES_DIR"/.agents/skills/*/; do
-        [ -f "$skill/SKILL.md" ] || continue
-        skill=${skill%/}
-        link "$skill" "$HOME/.agents/skills/${skill##*/}"
-        if [ "${skill##*/}" != claude-agent ]; then
-            link "$skill" "$HOME/.claude/skills/${skill##*/}"
-        fi
-    done
-fi
-
 printf '\nDone. Open a new terminal.\n'
